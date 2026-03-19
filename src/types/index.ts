@@ -42,13 +42,13 @@ export interface TranscriptDocument {
   updatedAt: string;
 }
 
-// Media player source
 export interface MediaSource {
   id: string;
-  type: 'youtube' | 'spotify';
-  url: string;
+  type: 'youtube' | 'spotify' | 'pdf';
+  url: string; // for pdf, this can be just the filename or a dummy url
   title?: string;
   thumbnailUrl?: string;
+  sentences?: TranscriptSentence[]; // Embedded transcript for PDFs or cached transcripts
 }
 
 // Dictionary result

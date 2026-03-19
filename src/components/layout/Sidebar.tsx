@@ -10,10 +10,13 @@ import {
   ChevronRight,
   Headphones,
   GripVertical,
+  LogOut,
+  User,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useResizable } from "@/hooks/useResizable";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { icon: Headphones, label: "學習", href: "/" },
@@ -26,6 +29,8 @@ const navItems = [
 export default function Sidebar({ onOpenSearch }: { onOpenSearch?: () => void }) {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const { user, signOut, loading } = useAuth();
 
   // Use resizable hook for sidebar width
   const { size: width, startResizing, isResizing } = useResizable({
@@ -105,6 +110,46 @@ export default function Sidebar({ onOpenSearch }: { onOpenSearch?: () => void })
           );
         })}
       </nav>
+
+      {/* User Session Widget */}
+      <div className="p-3 border-t border-[var(--color-border)]">
+        {!loading && user ? (
+          <div className="flex items-center gap-3 p-2 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[var(--color-accent-pink)] to-[var(--color-accent-blue)] flex items-center justify-center shrink-0">
+              <User size={16} className="text-white" />
+            </div>
+            {!collapsed && activeWidth > 120 && (
+              <div className="flex-1 min-w-0 animate-fade-in flex items-center justify-between">
+                <span className="text-xs font-medium text-[var(--color-text-primary)] truncate">
+                  {user.email?.split("@")[0]}
+                </span>
+                <button
+                  onClick={async () => {
+                    await signOut();
+                    router.refresh();
+                  }}
+                  className="p-1.5 text-[var(--color-text-muted)] hover:text-red-400 transition-colors"
+                  title="登出"
+                >
+                  <LogOut size={16} />
+                </button>
+              </div>
+            )}
+          </div>
+        ) : !loading && !user ? (
+          <Link
+            href="/login"
+            className={`flex items-center justify-center gap-2 p-2.5 rounded-lg bg-[var(--color-accent-blue)]/10 text-[var(--color-accent-blue)] hover:bg-[var(--color-accent-blue)] hover:text-white transition-all ${
+              collapsed || activeWidth <= 120 ? "px-0" : ""
+            }`}
+          >
+            <User size={18} />
+            {!collapsed && activeWidth > 120 && (
+              <span className="text-sm font-semibold animate-fade-in">登入 / 註冊</span>
+            )}
+          </Link>
+        ) : null}
+      </div>
 
       {/* Collapse toggle */}
       <button

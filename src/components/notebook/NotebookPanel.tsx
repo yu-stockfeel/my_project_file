@@ -550,9 +550,19 @@ export default function NotebookPanel() {
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
 
   // Player Context
-  const { videoId, platform, currentTime, seekTo } = usePlayer();
+  const { videoId, platform, currentTime, seekTo, activeMedia, addToPlaylist } = usePlayer();
   const [isLoadingTranscript, setIsLoadingTranscript] = useState(false);
   const [transcriptError, setTranscriptError] = useState<string | null>(null);
+
+  // Sync when activeMedia changes
+  useEffect(() => {
+    if (activeMedia?.type === "pdf" && activeMedia.sentences) {
+      setSentences(activeMedia.sentences);
+      setTranscriptTitle(activeMedia.title || "PDF 學習筆記");
+      setHasTranscript(true);
+      setTranscriptError(null);
+    }
+  }, [activeMedia]);
 
   // Auto-fetch transcript when video changes
   useEffect(() => {
@@ -708,6 +718,15 @@ export default function NotebookPanel() {
     setTranscriptTitle(title);
     setHasTranscript(true);
     setTranscriptError(null);
+    
+    // Auto-save to global playlist so it survives refresh
+    addToPlaylist({
+      id: `pdf-${Date.now()}`,
+      type: "pdf",
+      url: title,     // using title as URL/identifier
+      title: title,
+      sentences: newSentences
+    });
   };
 
 
