@@ -1,0 +1,121 @@
+[
+  {
+    "id": "g-n5-1",
+    "title": "〜は〜です",
+    "level": "N5",
+    "meaning": "[A]是[B] (介紹身份、狀態)",
+    "formation": "名詞 + は + 名詞/形容詞 + です",
+    "examples": [
+      {
+        "japanese": "私は学生です。",
+        "translation": "我是學生。"
+      },
+      {
+        "japanese": "このお茶は熱いです。",
+        "translation": "這杯茶很熱。"
+      }
+    ]
+  },
+  {
+    "id": "g-n5-2",
+    "title": "〜ます",
+    "level": "N5",
+    "meaning": "做某事 (表示現在或未來的肯定動作，禮貌體)",
+    "formation": "動詞ます形",
+    "examples": [
+      {
+        "japanese": "毎日、本を読みます。",
+        "translation": "每天看書。"
+      },
+      {
+        "japanese": "明日、学校へ行きます。",
+        "translation": "明天去學校。"
+      }
+    ]
+  },
+  {
+    "id": "g-n5-3",
+    "title": "〜から、〜",
+    "level": "N5",
+    "meaning": "因為...所以... (表示原因、理由)",
+    "formation": "普通形/丁寧形 + から",
+    "examples": [
+      {
+        "japanese": "雨が降っていますから、出かけません。",
+        "translation": "因為正在下雨，所以不出門。"
+      },
+      {
+        "japanese": "美味しいですから、全部食べました。",
+        "translation": "因為很好吃，所以全部吃完了。"
+      }
+    ]
+  },
+  {
+    "id": "g-n4-1",
+    "title": "〜かもしれない",
+    "level": "N4",
+    "meaning": "也許、可能 (表示推測)",
+    "formation": "普通形 + かもしれない (名詞、な形容詞去だ)",
+    "examples": [
+      {
+        "japanese": "明日は雨が降るかもしれない。",
+        "translation": "明天可能會下雨。"
+      },
+      {
+        "japanese": "彼は病気かもしれない。",
+        "translation": "他可能生病了。"
+      }
+    ]
+  },
+  {
+    "id": "g-n4-2",
+    "title": "〜てみる",
+    "level": "N4",
+    "meaning": "試著做做看 (表示嘗試某動作)",
+    "formation": "動詞て形 + みる",
+    "examples": [
+      {
+        "japanese": "このケーキを食べてみます。",
+        "translation": "我來試吃看看這個蛋糕。"
+      },
+      {
+        "japanese": "新しい靴を履いてみた。",
+        "translation": "試穿了新鞋子。"
+      }
+    ]
+  },
+  {
+    "id": "g-n3-1",
+    "title": "〜おかげで",
+    "level": "N3",
+    "meaning": "多虧... (表示好的結果的原因)",
+    "formation": "名詞の/動詞普通形/形容詞 + おかげで",
+    "examples": [
+      {
+        "japanese": "先生のおかげで、試験に合格しました。",
+        "translation": "多虧了老師，我考試及格了。"
+      },
+      {
+        "japanese": "薬を飲んだおかげで、熱が下がった。",
+        "translation": "多虧吃了藥，燒退了。"
+      }
+    ]
+  },
+  {
+    "id": "g-n3-2",
+    "title": "〜せいで",
+    "level": "N3",
+    "meaning": "都怪... (表示壞的結果的原因)",
+    "formation": "名詞の/動詞普通形/形容詞 + せいで",
+    "examples": [
+      {
+        "japanese": "バスが遅れたせいで、遅刻してしまった。",
+        "translation": "都怪巴士晚點，所以我遲到了。"
+      },
+      {
+        "japanese": "雨のせいで、試合は中止になった。",
+        "translation": "因為下雨的緣故，比賽取消了。"
+      }
+    ]
+  }
+]
